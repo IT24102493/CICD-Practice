@@ -1,4 +1,4 @@
-import subprocess
+from pathlib import Path
 
 
 def validate_username(username):
@@ -31,5 +31,6 @@ if __name__ == "__main__":
 
 
 def show_directory_contents():
-    """Safer version for Windows."""
-    subprocess.run(["cmd", "/c", "dir"], check=True)
+    """Safer version using Python instead of a shell command."""
+    for item in Path(".").iterdir():
+        print(item)
